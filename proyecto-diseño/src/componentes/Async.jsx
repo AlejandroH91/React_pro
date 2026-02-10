@@ -1,37 +1,52 @@
 import React, { useState, useEffect } from "react";
 
-const PerrosList = () => {
+const PerrosAsync = () => {
   const [perros, setPerros] = useState([]);
 
   useEffect(() => {
-    // Definimos la función async dentro de useEffect
-    const fetchPerros = async () => {
+    const obtenerPerros = async () => {
       try {
-        const response = await fetch("https://dog.ceo/api/breeds/image/random/10");
-        if (!response.ok) throw new Error("Error en la red");
+        const response = await fetch(
+          "https://dogapi.dog/api/v2/breeds?page[number]=2&page[size]=50"
+        );
+
+        if (!response.ok) {
+          throw new Error("Error en la red");
+        }
+
         const data = await response.json();
-        setPerros(data.message); // data.message es un array de URLs
+
+        console.log("Perros recibidos:", data.data);
+
+        setPerros(data.data); // aquí guardamos el array
       } catch (error) {
         console.error("Error al obtener datos:", error);
       }
     };
 
-    fetchPerros();
-  }, []); // [] para que solo se ejecute una vez
+    obtenerPerros();
+  }, []);
 
   return (
     <div className="container mt-5">
-      <h1>Lista de Perros</h1>
+      <h1>Lista de Razas</h1>
+      <p>
+        Hay <b>{perros.length}</b> razas cargadas
+      </p>
+
       <div className="row">
-        {perros.map((url, index) => (
-          <div key={index} className="col-12 col-md-4 mb-3">
-            <div className="card">
-              <img
-                src={url}
-                alt={`Perro ${index + 1}`}
-                className="card-img-top"
-                style={{ maxHeight: "250px", objectFit: "cover" }}
-              />
+        {perros.map((perro) => (
+          <div key={perro.id} className="col-12 col-md-6 col-lg-4 mb-3">
+            <div className="card p-3 h-100">
+              <h5>{perro.attributes.name}</h5>
+              <p style={{ fontSize: "0.9rem" }}>
+                {perro.attributes.description}
+              </p>
+              <p>
+                Vida media:{" "}
+                {perro.attributes.life?.min} -{" "}
+                {perro.attributes.life?.max} años
+              </p>
             </div>
           </div>
         ))}
@@ -40,4 +55,4 @@ const PerrosList = () => {
   );
 };
 
-export default PerrosList;
+export default PerrosAsync;

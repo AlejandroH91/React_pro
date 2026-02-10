@@ -4,35 +4,49 @@ function Cabecera() {
   return (
     <header className="bg-success text-white fixed-top">
       <div className="container">
-        {/*H1 centrado */}
+
         <div className="row py-3">
           <div className="col-12 text-center">
             <h1>Practica React</h1>
           </div>
         </div>
 
-        {/*Enlaces centrados en columnas */}
+        {/* Bloque de Enlaces */}
         <div className="row py-2 justify-content-center">
-          <div className="col-6 col-md-2 text-center mb-2 mb-md-0">
-            <Link className="text-white text-decoration-none" to="/">Home</Link>
+          <div className="col-6 col-md-2 text-center">
+            <Link className="text-white text-decoration-none" to="/">
+              Bienvenida
+            </Link>
           </div>
-          <div className="col-6 col-md-2 text-center mb-2 mb-md-0">
-            <Link className="text-white text-decoration-none" to="/about">About</Link>
+
+          <div className="col-6 col-md-2 text-center">
+            <Link className="text-white text-decoration-none" to="/ajax">
+              10 Perros con Ajax
+            </Link>
           </div>
-          <div className="col-6 col-md-2 text-center mb-2 mb-md-0">
-            <Link className="text-white text-decoration-none" to="/contact">Contact</Link>
+
+          <div className="col-6 col-md-2 text-center">
+            <Link className="text-white text-decoration-none" to="/async">
+              Muchos Perros con Async
+            </Link>
           </div>
-          <div className="col-6 col-md-2 text-center mb-2 mb-md-0">
-            <Link className="text-white text-decoration-none" to="/contact">Contact</Link>
+
+          <div className="col-6 col-md-2 text-center">
+            <Link className="text-white text-decoration-none" to="/ejemplo4">
+              Ejemplo 4
+            </Link>
           </div>
-          <div className="col-6 col-md-2 text-center mb-2 mb-md-0">
-            <Link className="text-white text-decoration-none" to="/contact">Contact</Link>
+
+          <div className="col-6 col-md-2 text-center">
+            <Link className="text-white text-decoration-none" to="/ejemplo5">
+              Ejemplo 5
+            </Link>
           </div>
         </div>
+
       </div>
     </header>
   );
 }
 
 export default Cabecera;
-
