@@ -1,32 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Cabecera from './componentes/Cabecera.jsx'
-import Footer from './componentes/Footer.jsx'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import Cabecera from './componentes/Cabecera.jsx';
+import Footer from './componentes/Footer.jsx';
+import PerrosList from './componentes/AjaxPeticion.jsx';
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
       <Cabecera />
-      <div className="App">
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div> 
+      <main className="flex-grow-1 container mt-5 pt-5 aling-items-center">
+        <div className='App'>
+      <PerrosList />
+      </div>
+      </main>
+
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

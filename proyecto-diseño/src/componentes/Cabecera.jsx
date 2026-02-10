@@ -7,7 +7,7 @@ function Cabecera() {
         {/*H1 centrado */}
         <div className="row py-3">
           <div className="col-12 text-center">
-            <h1>Mi Aplicación</h1>
+            <h1>Practica React</h1>
           </div>
         </div>
 
