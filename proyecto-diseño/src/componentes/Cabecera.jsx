@@ -32,8 +32,8 @@ function Cabecera() {
           </div>
 
           <div className="col-6 col-md-2 text-center">
-            <Link className="text-white text-decoration-none" to="/ejemplo4">
-              Ejemplo 4
+            <Link className="text-white text-decoration-none" to="/local">
+               LocalStorage
             </Link>
           </div>
 
