@@ -21,13 +21,51 @@ a {
 a:hover {
   color: #535bf2;
 }
-
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column; /* apilar header, main, footer */
+  align-items: stretch;
   min-width: 320px;
   min-height: 100vh;
+  /* reservar espacio para header/footer (valores por defecto que se pueden ajustar)
+     estos valores evitan que el contenido quede bajo los elementos fixed-top / fixed-bottom */
+  --header-height: 160px; /* aumentado para evitar que el header corte texto */
+  --footer-height: 80px;
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+}
+
+/* Forzar alturas en header/footer fijados para que el padding funcione correctamente */
+header.fixed-top {
+  height: var(--header-height);
+  z-index: 1030;
+  padding-top: 0.5rem; /* un poco de espacio interno extra */
+  padding-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+footer.fixed-bottom {
+  height: var(--footer-height);
+  z-index: 1030;
+}
+
+/* Hacer que el main ocupe el espacio restante entre header y footer */
+main {
+  flex: 1 1 auto;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* mantener inicio vertical, no centrar verticalmente */
+  align-items: center; /* centrar horizontalmente el contenido dentro del main */
+  padding: 1rem 0;
+}
+
+/* Asegurar que el contenedor dentro de main no ocupe toda la anchura y quede centrado */
+main > .container {
+  width: 100%;
+  max-width: 1100px;
 }
 
 h1 {

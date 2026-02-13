@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Cabecera />
-      <main className="flex-grow-1 container w-100 h-100 aling-items-center">
+  <main className="container w-100 h-100">
          <Routes>
           <Route path="/" element={<Bienvenida />} />
           <Route path="/ajax" element={<PerrosList />} />
