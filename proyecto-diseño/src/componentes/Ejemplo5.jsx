@@ -1,40 +1,32 @@
-import { Link } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { Montar } from "./Montar";
+import incrementar from "./Incrementar";
 
 function Ejemplo5() {
+  const mensaje = "Menú subrouting";
   return (
-    <div className="d-flex">
+    <div className="container">
+      <div className="row">
+        <aside className="col-12 col-md-3">
+          <h2 className="text-center mb-4">{mensaje}</h2>
+          <nav className="nav flex-column">
+            <NavLink end className="nav-link text-dark" to="incrementar">
+              Incrementar
+            </NavLink>
+            <NavLink className="nav-link text-dark" to="montar">
+              Montar Componente
+            </NavLink>
+            <NavLink className="nav-link text-dark" to="async">
+              Muchos Perros con Async
+            </NavLink>
+          </nav>
+        </aside>
 
-      {/* Sidebar fijo a la izquierda */}
-      <div 
-        className="bg-primary text-white p-3 vh-100 position-fixed"
-        style={{ width: '220px' }}
-      >
-        <h2 className="text-center mb-4">SubRouting</h2>
-
-        {/* Enlaces uno debajo de otro */}
-        <nav className="nav flex-column">
-          <Link className="nav-link text-white" to="/">
-            Bienvenida
-          </Link>
-          <Link className="nav-link text-white" to="/ajax">
-            10 Perros con Ajax
-          </Link>
-          <Link className="nav-link text-white" to="/async">
-            Muchos Perros con Async
-          </Link>
-          <Link className="nav-link text-white" to="/local">
-            LocalStorage
-          </Link>
-          <Link className="nav-link text-white" to="/ejemplo5">
-            Ejemplo 5
-          </Link>
-        </nav>
-      </div>
-
-      {/* Contenido principal a la derecha del sidebar */}
-      <div className="flex-grow-1 ms-auto p-4">
-        <h2>Aquí va el contenido principal</h2>
-        <p>La llamada a la API sin imágenes y otros elementos van aquí.</p>
+        <section className="col-12 col-md-9">
+          <div className="p-3">
+            <Outlet />
+          </div>
+        </section>
       </div>
     </div>
   );

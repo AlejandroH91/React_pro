@@ -3,6 +3,7 @@ import viteLogo from '/vite.svg';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
+
 function Bienvenida() {
 
     const params = useParams();
@@ -16,7 +17,10 @@ function Bienvenida() {
         <div className="text-center">
 
             <h1>Bienvenido a la práctica de React</h1>
-                <h2> {nombre} {apellidos}</h2>
+            <h2> {nombre} {apellidos}</h2>
+            <br /><br />
+                
+               
             {/* FORMULARIO */}
             <form onSubmit={manejarSubmit}>
                 <input type="text" placeholder="Introduce tu nombre" value={nombre}
@@ -28,7 +32,7 @@ function Bienvenida() {
                     onChange={(e) => setApellidos(e.target.value)}
                 />
             </form>
-
+            <br /><br />
             <div className="d-flex justify-content-center gap-4 mt-3">
                 <img src={reactLogo} alt="React logo" width="100" />
                 <img src={viteLogo} alt="Vite logo" width="100" />

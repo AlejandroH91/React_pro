@@ -27,7 +27,7 @@ const PerrosList = () => {
               <img
                 src={url}
                 alt={`Perro ${index + 1}`}
-                className="card-img-top"
+                className="card-img-top agrandar" //Pongo la clase agrandar desde css.
                 style={{ maxHeight: "250px", objectFit: "cover" }}
               />
             </div>

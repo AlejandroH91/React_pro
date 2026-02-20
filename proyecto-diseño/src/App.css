@@ -1,8 +1,20 @@
- #root {
+  #root {
   max-width: 100%;
-
   text-align: center;
 } 
+
+/* center content inside main and ensure images scale */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 .logo {
   height: 6em;
