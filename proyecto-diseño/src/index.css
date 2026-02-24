@@ -13,11 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .agrandar {
-  transition: transform 0.3s ease;
+  transition: transform 1.2s ease;
 }
  /* Efecto para ver las imágenes de perros más grandes*/
 .agrandar:hover {
-  transform: scale(1.8);
+  transform: scale(2.0);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   z-index: 10;           
 }
